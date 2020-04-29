@@ -75,8 +75,16 @@
                     if( response.status !== 200 ){
                         alert( "Error en la autenticación" );
                     }else{
+                        //success action
+                        //save the token
                         localStorage.setItem( 'token', response.data.access_token );
-                        alert( "¡Autenticación Exitosa! El token se ha almacenado en el Local Storage" )
+                        //go home
+                        this.$router.push(
+                                //define the new location
+                                {
+                                  //get the location by the name
+                                  name:"home"
+                                });
                     }
                 } ).catch( error => {
                     if( error.response.status === 400 ){
